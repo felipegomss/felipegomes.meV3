@@ -50,7 +50,7 @@ export function Projects() {
 
   return (
     <div className='flex flex-col justify-center'>
-      <h1 className='text-4xl sm:w-1/2 font-start m-auto'>
+      <h1 className='text-4xl sm:w-1/2 font-start m-auto sm:m-0'>
         Projects
       </h1>
       <div className='flex flex-col sm:flex-row'>
