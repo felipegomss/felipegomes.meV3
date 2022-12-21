@@ -25,7 +25,7 @@ function App() {
         <Banner />
       </div>
       <Brands />
-      <div className='w-full max-w-[1500px] mx-auto'>\
+      <div className='w-full max-w-[1500px] mx-auto'>
         <div ref={aboutRef} className="ref"></div>
         <About />
         <div ref={portifolioRef} className="ref"></div>
