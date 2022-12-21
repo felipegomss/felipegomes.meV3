@@ -37,7 +37,8 @@ export function Projects() {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Authorization: `bearer ${process.env.REACT_APP_GIT_API_TOKEN}`,
+            // Authorization: `bearer ${process.env.REACT_APP_GIT_API_TOKEN}`,
+            Authorization: `bearer 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`,
           },
         }
       );
