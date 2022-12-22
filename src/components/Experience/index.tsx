@@ -7,15 +7,17 @@ export function Experience() {
 
       <Tabs.Root className="flex w-full" defaultValue="tab1">
 
-        <Tabs.List className="flex flex-col" aria-label="Manage your account">
-          <Tabs.Trigger className="cursor-pointer p-2 flex justify-content items-center data-[state=active]:border-l-green-400 border-l-black border-l-2 after:absolute after:w-4/6 after:bottom-0 after:h-[1px] after:bg-zinc-400 after:m-auto relative" value="tab1">
+        <Tabs.List className="flex flex-col px-3" aria-label="Manage your account">
+          <Tabs.Trigger className="cursor-pointer p-2 flex justify-content items-center data-[state=active]:border-l-green-400 border-l-black border-l-2 after:absolute after:w-4/6 after:bottom-0 after:h-[1px] after:bg-zinc-700 after:m-auto relative" value="tab1">
             EISA
           </Tabs.Trigger>
-          <Tabs.Trigger className="cursor-pointer p-2 flex justify-content items-start data-[state=active]:border-l-green-400 border-l-black border-l-2" value="tab2">
+          <Tabs.Trigger className="cursor-pointer p-2 flex justify-content items-start data-[state=active]:border-l-green-400 border-l-black border-l-2 after:absolute after:w-4/6 after:bottom-0 after:h-[1px] after:bg-zinc-700 after:m-auto relative" value="tab2">
             Parallel
           </Tabs.Trigger>
+          <Tabs.Trigger className="cursor-pointer p-2 flex justify-content items-start data-[state=active]:border-l-green-400 border-l-black border-l-2" value="tab3">
+          </Tabs.Trigger>
         </Tabs.List>
-        <div className='px-5 w-full'>
+        <div className='px-5 w-full border-l border-l-zinc-400'>
           <Tabs.Content className="w-full" value="tab1">
             <div>
               <span className='flex justify-between flex-col sm:flex-row'>
@@ -30,7 +32,7 @@ export function Experience() {
           </Tabs.Content>
           <Tabs.Content className="w-full" value="tab2">
             <div >
-              <span className='flex justify-between'>
+              <span className='flex justify-between flex-col sm:flex-row'>
                 <h1 className='text-xl '>Full Stack Developer</h1>
                 <h3 className='text-zinc-400 text-mono'>
                   09-2020 | 04-2021
