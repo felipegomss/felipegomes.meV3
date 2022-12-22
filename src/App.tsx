@@ -7,12 +7,13 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import './index.css';
 import { useRef } from 'react';
+import { Experience } from './components/Experience';
 
 function App() {
 
-  const aboutRef = useRef(null);
-  const portifolioRef = useRef(null);
-  const contactRef = useRef(null);
+  const aboutRef = useRef<any>(null);
+  const portifolioRef = useRef<any>(null);
+  const contactRef = useRef<any>(null);
   const aboutScroll = () => aboutRef.current.scrollIntoView();
   const portifolioScroll = () => portifolioRef.current.scrollIntoView();
   const contactScroll = () => contactRef.current.scrollIntoView();
@@ -28,6 +29,7 @@ function App() {
       <div className='w-full max-w-[1500px] mx-auto'>
         <div ref={aboutRef} className="ref"></div>
         <About />
+        <Experience />
         <div ref={portifolioRef} className="ref"></div>
         <Projects />
         <div ref={contactRef} className="ref"></div>

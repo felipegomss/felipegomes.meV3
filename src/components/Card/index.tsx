@@ -1,12 +1,6 @@
 import { Repos } from '../Projects';
 import { useState, useEffect } from 'react';
 
-type langsArray = {
-  node: {
-    color: string,
-    name: string
-  }
-}
 export function Card({
   name,
   languages,
@@ -14,7 +8,7 @@ export function Card({
   homepageUrl,
   url }: Repos
 ) {
-  const [langs, setLangs] = useState<langsArray[]>([])
+  const [langs, setLangs] = useState<any[]>([])
 
   useEffect(() => {
     setLangs(languages.edges)

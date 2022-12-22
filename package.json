@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@motionone/utils": "^10.15.1",
+    "@radix-ui/react-tabs": "^1.0.1",
     "@react-three/fiber": "^8.9.1",
     "@types/three": "^0.146.0",
     "axios": "^1.2.1",

@@ -17,8 +17,8 @@ export function Header({ about,
 
   return (
     <div className='sticky top-0 z-10'>
-      <div className='w-full max-w-[1500px] flex flex-row justify-between py-10 m-auto'>
-        <span className='hex bg-black/20 backdrop-blur-sm hidden sm'>
+      <div className='w-full max-w-[1500px] flex flex-row justify-between py-1 m-auto'>
+        <span className='bg-black/20 backdrop-blur-sm hidden sm:flex px-20 py-2 rounded-full'>
           <a href="/" className=' flex justify-center m-auto'>
             <img src={logo} className='w-14 h-14' />
           </a>
