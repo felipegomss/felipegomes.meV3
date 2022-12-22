@@ -49,7 +49,7 @@ export function Projects() {
   }, []);
 
   return (
-    <div className='flex flex-col justify-center px-10'>
+    <div className='flex flex-col justify-center px-10 py-20'>
       <h1 className='text-4xl sm:w-1/2 font-start m-auto sm:m-0'>
         Projects
       </h1>
