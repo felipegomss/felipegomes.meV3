@@ -1,74 +1,37 @@
-import { Card } from '../Card';
-import { motion } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react';
-import axios from "axios";
-
-import branch from '../../assets/branch.png'
-
-export type Repos = {
-  name: string,
-  languages: {
-    edges: string[]
-  },
-  description: string,
-  homepageUrl: string,
-  url: string
-}
-
+import * as Dialog from '@radix-ui/react-dialog';
+import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 
 export function Projects() {
-  const carousel = useRef<any>()
-  const [width, setWidth] = useState(2124)
-  const [repos, setRepos] = useState<Repos[]>([])
-
-  useEffect(() => {
-    if (useState.length > 0)
-      setWidth(2124 - carousel.current?.offsetWidth)
-  }, [])
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.post(
-        "https://api.github.com/graphql",
-        {
-          query:
-            '{\n  user(login: "felipegomss") {\n    pinnedItems(first: 6, types: REPOSITORY) {\n      nodes {\n        ... on Repository {\n          name\n          description\n          homepageUrl\n          url\n          languages {\n            ...LanguageConnectionFragment\n          }\n        }\n      }\n    }\n  }\n}\n\nfragment LanguageConnectionFragment on LanguageConnection {\n  edges {\n    node {\n      id\n      name\n      color\n    }\n  }\n}\n',
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            // Authorization: `bearer ${process.env.REACT_APP_GIT_API_TOKEN}`,
-            Authorization: `bearer `,
-          },
-        }
-      );
-      const result = response.data.data.user.pinnedItems.nodes;
-      setRepos(result);
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div className='flex flex-col justify-center px-10 py-20'>
-      <h1 className='text-4xl sm:w-1/2 font-start m-auto sm:m-0'>
-        Projects
-      </h1>
-      <div className='flex flex-col sm:flex-row'>
-        <div className='sm:w-1/2 m-auto'>
-          <img src={branch} alt="" className='w-full' />
-        </div>
-        <div className='w-full sm:w-1/3 m-auto'>
-          <motion.div ref={carousel} className='cursor-grab overflow-hidden' whileTap={{ cursor: "grabbing" }}>
-            <motion.div className='flex' drag="x" dragConstraints={{ right: 0, left: -width }} >
-              {repos.map((item, index) => (
-                <motion.div className='px-3' key={index}>
-                  <Card name={item.name} description={item.description} languages={item.languages} homepageUrl={item.homepageUrl} url={item.url} />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
+    <div className='flex flex-col py-20 font-mono gap-10 px-10'>
+      <h1 className='text-4xl font-start'>Projects</h1>
+      <div className="grid sm:grid-cols-4 grid-cols-1 gap-4 rounded">
+        <a href='http://countries.felipegomes.me' target="_blank" className="rounded border-2 border-green-400 cursor-pointer">
+          <AspectRatio.Root ratio={16 / 9}>
+            <div className="bg-country w-full h-full bg-cover bg-center">
+              <div className='bg-green-900/75 backdrop-blur-sm w-full h-full grid items-center group'>
+                <div className='text-center p-5'>
+                  <h1 className='text-2xl'>Where in the world?</h1>
+                  <p className='sm:hidden sm:group-hover:flex'>Get geo info about all countries around the world.</p>
+                </div>
+              </div>
+            </div>
+          </AspectRatio.Root>
+        </a>
+        <a href='https://streamjuice.felipegomes.me' target="_blank" className="rounded border-2 border-green-400 cursor-pointer">
+          <AspectRatio.Root ratio={16 / 9}>
+            <div className="bg-streamjuice w-full h-full bg-cover bg-center">
+              <div className='bg-green-900/75 backdrop-blur-sm w-full h-full grid items-center group'>
+                <div className='text-center p-5'>
+                  <h1 className='text-2xl'>StreamJuice</h1>
+                  <p className='sm:hidden sm:group-hover:flex'>A website to find movies & series and their streams.</p>
+                </div>
+              </div>
+            </div>
+          </AspectRatio.Root>
+        </a>
       </div>
+
     </div>
   );
 }

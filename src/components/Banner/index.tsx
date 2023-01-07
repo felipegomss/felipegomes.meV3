@@ -7,7 +7,7 @@ export function Banner() {
       <div className='sm:w-1/2 flex justify-start items-center flex-col'>
         <div className=''>
           <h1 className='text-2xl pt-10 sm:pt-0 sm:text-4xl'>
-            Your{""}
+            Your{" "}
             <span className='text-green-400'>
               idea</span>,
             <div>

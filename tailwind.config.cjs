@@ -9,6 +9,8 @@ module.exports = {
       backgroundImage:{
         "pattern-brands": "url('/public/brand-pattern.png')",
         "web": "url('/public/web.png')",
+        "country": "url('/public/countries.png')",
+        "streamjuice": "url('/public/streamjuice.png')",
       },
       fontFamily:{
         "righteous":['"Righteous"'],

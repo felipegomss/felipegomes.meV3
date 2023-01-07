@@ -2,6 +2,7 @@ import { Header } from './components/Header';
 import { Banner } from './components/Banner/';
 import { Brands } from './components/Brands';
 import { About } from './components/About';
+import { Repositories } from './components/Repositories';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -32,6 +33,7 @@ function App() {
         <Experience />
         <div ref={portifolioRef} className="ref"></div>
         <Projects />
+        <Repositories />
         <div ref={contactRef} className="ref"></div>
         <Contact />
         <Footer />
