@@ -1,29 +1,27 @@
-import { Card } from '../Card';
-import { motion } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react';
+import { Card } from "../Card";
+import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 
-import branch from '../../assets/branch.png'
+import branch from "../../assets/branch.png";
 
 export type Repos = {
-  name: string,
+  name: string;
   languages: {
-    edges: string[]
-  },
-  description: string,
-  url: string
-}
-
+    edges: string[];
+  };
+  description: string;
+  url: string;
+};
 
 export function Repositories() {
-  const carousel = useRef<any>()
-  const [width, setWidth] = useState(2124)
-  const [repos, setRepos] = useState<Repos[]>([])
+  const carousel = useRef<any>();
+  const [width, setWidth] = useState(2124);
+  const [repos, setRepos] = useState<Repos[]>([]);
 
   useEffect(() => {
-    if (useState.length > 0)
-      setWidth(2124 - carousel.current?.offsetWidth)
-  }, [])
+    if (useState.length > 0) setWidth(2124 - carousel.current?.offsetWidth);
+  }, []);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post(
@@ -37,7 +35,6 @@ export function Repositories() {
             "Content-Type": "application/json",
             Accept: "application/json",
             // Authorization: `bearer ${process.env.REACT_APP_GIT_API_TOKEN}`,
-            Authorization: `bearer `,
           },
         }
       );
@@ -48,20 +45,31 @@ export function Repositories() {
   }, []);
 
   return (
-    <div className='flex flex-col justify-center px-10 py-20'>
-      <h1 className='text-4xl sm:w-1/2 font-start m-auto sm:m-0'>
-        Repos
-      </h1>
-      <div className='flex flex-col sm:flex-row'>
-        <div className='sm:w-1/2 m-auto'>
-          <img src={branch} alt="" className='w-full' />
+    <div className="flex flex-col justify-center px-10 py-20">
+      <h1 className="text-4xl sm:w-1/2 font-start m-auto sm:m-0">Repos</h1>
+      <div className="flex flex-col sm:flex-row">
+        <div className="sm:w-1/2 m-auto">
+          <img src={branch} alt="" className="w-full" />
         </div>
-        <div className='w-full sm:w-1/3 m-auto'>
-          <motion.div ref={carousel} className='cursor-grab overflow-hidden' whileTap={{ cursor: "grabbing" }}>
-            <motion.div className='flex' drag="x" dragConstraints={{ right: 0, left: -width }} >
+        <div className="w-full sm:w-1/3 m-auto">
+          <motion.div
+            ref={carousel}
+            className="cursor-grab overflow-hidden"
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <motion.div
+              className="flex"
+              drag="x"
+              dragConstraints={{ right: 0, left: -width }}
+            >
               {repos.map((item, index) => (
-                <motion.div className='px-3' key={index}>
-                  <Card name={item.name} description={item.description} languages={item.languages} url={item.url} />
+                <motion.div className="px-3" key={index}>
+                  <Card
+                    name={item.name}
+                    description={item.description}
+                    languages={item.languages}
+                    url={item.url}
+                  />
                 </motion.div>
               ))}
             </motion.div>
